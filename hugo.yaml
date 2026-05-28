@@ -1,0 +1,77 @@
+baseURL: "https://Yeomin01.github.io/"
+languageCode: ko-kr
+title: "ML 엔지니어링 로그"
+theme: PaperMod
+
+# GitHub Pages 배포 시 Yeomin01 을 실제 GitHub 계정으로 변경
+# 프로젝트 페이지면 baseURL: "https://Yeomin01.github.io/REPO_NAME/"
+
+pagination:
+  pagerSize: 10
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+pygmentsUseClasses: true
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: "ML 엔지니어링 로그"
+  description: "LLM 파인튜닝, NLP, 그리고 삽질 기록"
+  keywords: [LLM, NLP, 파인튜닝, MLOps, 개발블로그]
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowToc: true
+  TocOpen: false
+
+  homeInfoParams:
+    Title: "ML 엔지니어링 로그 👋"
+    Content: >
+      LLM 파인튜닝 / NLP / MLOps 작업하며 부딪힌 문제와 해결 과정을 기록합니다.
+      튜토리얼보다는 "삽질 → 원인 → 해결" 위주.
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/Yeomin01"
+
+  assets:
+    disableHLJS: false
+
+menu:
+  main:
+    - identifier: posts
+      name: 글
+      url: /posts/
+      weight: 10
+    - identifier: tags
+      name: 태그
+      url: /tags/
+      weight: 20
+    - identifier: search
+      name: 검색
+      url: /search/
+      weight: 30
+
+markup:
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    style: monokai
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON   # 검색 기능용
