@@ -40,10 +40,6 @@ params:
       LLM 파인튜닝 / NLP / MLOps 작업하며 부딪힌 문제와 해결 과정을 기록합니다.
       튜토리얼보다는 "삽질 → 원인 → 해결" 위주.
 
-  socialIcons:
-    - name: github
-      url: "https://github.com/Yeomin01"
-
   assets:
     disableHLJS: false
 
