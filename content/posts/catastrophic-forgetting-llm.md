@@ -3,6 +3,7 @@ title: "LLM 을 이어서 파인튜닝하면 이전 능력이 떨어진다 — C
 date: 2026-05-26
 draft: false
 tags: ["논문리뷰", "LLM", "파인튜닝", "continual-learning", "catastrophic-forgetting"]
+categories: ["학습 이론"]
 summary: "데이터를 나눠 순차적으로 파인튜닝하면 새 task 를 배우는 동안 이전 task 성능이 떨어진다. catastrophic forgetting 이라 부르는 오래된 문제다. 관련 논문과 완화 기법(EWC, rehearsal)을 정리한다."
 ---
 

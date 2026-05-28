@@ -3,6 +3,7 @@ title: "데이터를 줄여서 더 잘 학습하기 — Beyond Neural Scaling La
 date: 2026-05-28
 draft: false
 tags: ["논문리뷰", "데이터선별", "data-pruning", "scaling-law", "효율"]
+categories: ["데이터"]
 summary: "데이터를 무작정 늘리면 성능은 power law 로, 즉 점점 느리게 오른다. Sorscher et al. (NeurIPS 2022)는 좋은 선별 기준이 있으면 이 한계를 깨고 exponential scaling 에 가까워질 수 있음을 이론과 실험으로 보였다. 100만 건 규모의 데이터를 다 쓰는 대신 효과 큰 부분집합을 고르려는 입장에서, 이 논문을 자세히 정리한다."
 ---
 

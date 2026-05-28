@@ -3,6 +3,7 @@ title: "7B·10B 모델을 16GB GPU 한 장으로 파인튜닝하기 — LoRA / Q
 date: 2026-05-25
 draft: false
 tags: ["논문리뷰", "LLM", "파인튜닝", "LoRA", "QLoRA", "PEFT"]
+categories: ["파인튜닝"]
 summary: "수십억 파라미터 모델을 통째로 학습하려면 GPU 메모리부터 막힌다. LoRA 는 저랭크 행렬만 학습하고, QLoRA 는 4-bit 양자화를 더해 이 문제를 줄인다. 두 논문의 핵심과, rank 를 정할 때 고려한 capacity 문제를 정리한다."
 ---
 

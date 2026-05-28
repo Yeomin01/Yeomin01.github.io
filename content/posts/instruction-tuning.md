@@ -3,6 +3,7 @@ title: "지시문으로 학습시키면 안 배운 일도 한다 — Instruction
 date: 2026-05-27
 draft: false
 tags: ["논문리뷰", "LLM", "파인튜닝", "instruction-tuning"]
+categories: ["파인튜닝"]
 summary: "라벨만 있는 데이터로 지도학습하는 대신, '무엇을 하라'는 지시문 형태로 학습시키면 학습하지 않은 task 에도 일반화한다. instruction tuning 의 배경 논문(FLAN, InstructGPT)과, 같은 데이터를 어떤 형식으로 학습시킬지에 대한 선택을 정리한다."
 ---
 
