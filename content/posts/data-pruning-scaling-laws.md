@@ -44,6 +44,10 @@ example 마다 **난이도(difficulty)** 를 매겨 정렬한다. 난이도는 �
 
 즉 "어려운 데이터가 항상 가치 있다" 가 아니라, **내가 가진 데이터 양에 따라 우선순위가 뒤집힌다.** 대규모 데이터를 다룰수록 hard example 위주로 남기는 것이 유리하다.
 
+![데이터 양에 따라 남길 example 이 뒤집힌다](/images/data_pruning_strategy.png)
+
+(개념 설명용 도식이다. 원문의 실험 그래프와 self-supervised metric 성능은 arXiv:2206.14486 을 참고.)
+
 ## 5. 라벨 없이도 가능한 self-supervised pruning
 
 난이도 측정에 라벨이 꼭 필요한 것은 아니다. 논문은 라벨 없는 self-supervised 방식을 제안한다.
