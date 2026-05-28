@@ -77,6 +77,10 @@ EWC 의 Fisher 추정은 LoRA 파인튜닝 파이프라인에 통합하기 번�
 
 이전 분포를 계속 노출시키면서 학습한 결과, 이전 task 의 성능 하락이 줄었다. Luo et al. 이 보고한 "general 데이터를 섞으면 망각이 완화된다" 와 같은 방향이다.
 
+![순차 파인튜닝 시 이전 task 성능 — rehearsal 유무 비교](/images/catastrophic_forgetting.png)
+
+(위 그래프는 개념 설명용으로 직접 작성한 것이다. 실제 측정 곡선은 Luo et al. 2023 원문을 참고.)
+
 ## 정리
 
 - catastrophic forgetting 은 신경망의 오래된 한계이며 LLM 도 예외가 아니다. 규모가 커진다고 사라지지 않으며, 보고에 따르면 오히려 심해지는 경향이 있다.

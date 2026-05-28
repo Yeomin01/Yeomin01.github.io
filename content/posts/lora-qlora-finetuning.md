@@ -28,6 +28,8 @@ W_new = W + ΔW
 ΔW = B · A     (B: d×r,  A: r×d,  r ≪ d)
 ```
 
+![LoRA 저랭크 분해 개념도](/images/lora_decomposition.png)
+
 - 원본 W 는 동결(frozen)한다. 따라서 gradient/optimizer state 가 필요 없다.
 - 학습 대상은 A, B 뿐이다. r=16 이면 원본 파라미터의 1% 미만.
 - 추론 시 W + BA 로 합치면 추가 연산이 없다.

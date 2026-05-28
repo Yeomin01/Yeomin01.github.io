@@ -16,6 +16,8 @@ summary: "성능이 안 나올 때 데이터를 더 넣거나 epoch 을 늘리�
 
 둘 다 합리적으로 보이지만, 항상 효과가 있는 것은 아니다. 무엇이 부족한지에 따라 결과가 갈린다.
 
+![데이터 양으로 미는 것 vs 잘 선별하는 것](/images/scaling_power_vs_exp.png)
+
 ## LIMA: 1,000건의 고품질 데이터
 
 Zhou et al. (2023), *LIMA: Less Is More for Alignment* 는 데이터 양에 대한 통념을 다룬다.
