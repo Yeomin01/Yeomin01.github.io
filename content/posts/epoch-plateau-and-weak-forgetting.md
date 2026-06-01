@@ -17,13 +17,17 @@ plateau는 학습 곡선이 평탄해지는 구간이다. train loss 곡선만 �
 
 plateau가 시작되는 지점은 데이터의 양·다양성, 모델 capacity, 학습률에 따라 다르다. 다만 일반적인 instruction tuning 시나리오에서는 비교적 이른 시점, 흔히 2~4 에폭 안에서 관찰된다.
 
+![plateau + 약한 forgetting 패턴 예시](/images/plateau_pattern.png)
+
+위 예시처럼 세 클래스가 모두 비슷한 시기에 정점(원 표시)을 찍고, 그 너머에서 평탄하다가 미세하게 내려간다. 클래스 C 처럼 데이터가 적거나 모델이 약한 클래스는 정점이 살짝 늦고 이후 더 빨리 깎이는 경향이 자주 보인다.
+
 ## 약한 forgetting — plateau 이후 미세하게 나빠지는 구간
 
 plateau 이후 에폭을 더 돌리면 평가 metric이 종종 미세하게 하락한다. 0.001~0.005 정도의 작은 폭이라 noise처럼 보이지만, 여러 metric에서 일관되게 같은 방향으로 움직이면 noise가 아니라 **약한 forgetting** 또는 **약한 과적합**으로 봐야 한다.
 
 이 구간에서 두 현상이 섞여 있다.
 
-**continual learning 관점의 forgetting** — 같은 데이터를 반복 학습하면 모델은 현재 분포에 점점 더 특화되고, 그 과정에서 base 모델이 갖고 있던 일반적 능력이나 이전 단계에서 잘하던 부분이 조금씩 약해진다. 여러 종류의 출력을 동시에 학습시켜야 하는 경우, 한 종류의 metric이 천천히 깎이는 식으로 드러난다. (관련: [catastrophic forgetting 글](/posts/catastrophic-forgetting-llm/))
+**continual learning 관점의 forgetting** — 같은 데이터를 반복 학습하면 모델은 현재 분포에 점점 더 특화되고, 그 과정에서 base 모델이 갖고 있던 일반적 능력이나 이전 단계에서 잘하던 부분이 조금씩 약해진다. 이 현상은 신경망의 오래된 알려진 문제로, McCloskey & Cohen (1989) 이 처음 *catastrophic interference* 라는 이름으로 보고했고, Goodfellow et al. (2014) *An Empirical Investigation of Catastrophic Forgetting in Gradient-Based Neural Networks* 가 현대적 신경망에서도 같은 패턴이 나타남을 정량적으로 확인했다. 여러 종류의 출력을 동시에 학습시켜야 하는 경우, 한 종류의 metric이 천천히 깎이는 식으로 드러난다. (관련: [catastrophic forgetting 글](/posts/catastrophic-forgetting-llm/))
 
 **전통적 과적합 관점** — 학습셋에 든 미세한 노이즈·편향까지 외우기 시작하면, train loss는 계속 내려가는데 평가셋 성능은 정체 또는 하락한다. 에폭이 많을수록 이 격차가 벌어진다.
 
@@ -56,3 +60,12 @@ plateau와 약한 forgetting을 알아채는 거의 유일한 신호는 **에폭
 - 그 너머에서 에폭을 더 돌리면 약한 forgetting과 미세 과적합이 같이 나타나, 보통 평가 metric이 천천히 깎인다.
 - 실제로 보려면 에폭별 평가 metric sweep이 필요하다. train loss만 보면 안 보인다.
 - plateau에 닿았다면 에폭이 아니라 데이터 품질·다양성, 또는 모델 capacity로 레버를 옮긴다.
+
+---
+
+## 참고
+
+- McCloskey, M., & Cohen, N. J. (1989). *Catastrophic interference in connectionist networks: The sequential learning problem*.
+- Goodfellow, I. J., Mirza, M., Xiao, D., Courville, A., & Bengio, Y. (2014). *An Empirical Investigation of Catastrophic Forgetting in Gradient-Based Neural Networks*. arXiv:1312.6211.
+- Kirkpatrick, J., et al. (2017). *Overcoming catastrophic forgetting in neural networks*. PNAS. — forgetting 을 완화하기 위한 EWC.
+- Hu, E. J., et al. (2021). *LoRA: Low-Rank Adaptation of Large Language Models*. arXiv:2106.09685. — capacity 관점에서의 `r` 의 역할.

@@ -52,6 +52,10 @@ micro와 macro를 같이 계산해 보면:
 
 차이는 0.02 정도지만, "이 모델 0.95"라고만 보고하면 **C가 0.86인 사실은 micro만으로는 안 보인다.** 만약 C가 비즈니스적으로 가장 중요한 카테고리거나, 모델이 가장 못하는 약점 클래스라면 micro만 보고 결정하는 순간 그 약점이 가려진다.
 
+![micro 와 macro 가 서로 다른 모델을 가리키는 상황](/images/micro_vs_macro_decision.png)
+
+위 예시처럼 한쪽 지표만 보면 두 모델 중 누가 더 나은지가 뒤집힐 수 있다. micro 만 보면 Model X 가 우위지만, 약점 클래스 C 의 격차(0.85 vs 0.91)가 비즈니스적으로 더 중요하다면 macro 가 가리키는 Model Y 가 옳은 선택이 된다.
+
 ## 언제 어느 쪽을 보나
 
 **micro F1이 적합한 경우**
@@ -92,3 +96,11 @@ micro만 보면 X가 우세하지만, 약점 클래스가 비즈니스적으로 
 - micro F1은 샘플 단위로 평균하고, macro F1은 클래스 단위로 평균한다.
 - 클래스 분포가 치우쳤거나 약점 클래스가 중요할 때, micro는 그 약점을 가린다.
 - "이 모델이 더 낫다"를 micro 한 숫자로만 판단하지 말고, **per-class F1까지 같이 보는 습관**이 한 번 잘못 고른 모델을 막아준다.
+
+---
+
+## 참고
+
+- Sokolova, M., & Lapalme, G. (2009). *A systematic analysis of performance measures for classification tasks*. Information Processing & Management, 45(4), 427–437. — micro/macro 를 포함한 분류 지표를 체계적으로 비교한 표준 참고문.
+- Tjong Kim Sang, E. F., & De Meulder, F. (2003). *Introduction to the CoNLL-2003 Shared Task: Language-Independent Named Entity Recognition*. — NER 에서 micro F1 을 표준 헤드라인으로 쓰는 관행의 출처.
+- scikit-learn 문서, [`sklearn.metrics.f1_score`](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html) — `average` 파라미터(`micro`, `macro`, `weighted`)의 정의와 동작.
