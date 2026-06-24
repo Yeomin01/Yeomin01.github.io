@@ -1,10 +1,73 @@
 baseURL: "https://Yeomin01.github.io/"
-languageCode: ko-kr
-title: "ML 엔지니어링 로그"
 theme: PaperMod
 
-# GitHub Pages 배포 시 Yeomin01 을 실제 GitHub 계정으로 변경
-# 프로젝트 페이지면 baseURL: "https://Yeomin01.github.io/REPO_NAME/"
+defaultContentLanguage: ko
+defaultContentLanguageInSubdir: false
+
+languages:
+  ko:
+    languageCode: ko-kr
+    languageName: 한국어
+    weight: 1
+    title: "ML 엔지니어링 로그"
+    params:
+      description: "LLM 파인튜닝, NLP, 그리고 삽질 기록"
+      keywords: [LLM, NLP, 파인튜닝, MLOps, 개발블로그]
+      homeInfoParams:
+        Title: "ML 엔지니어링 로그 👋"
+        Content: >
+          LLM 파인튜닝 / NLP / MLOps 작업하며 부딪힌 문제와 해결 과정을 기록합니다.
+          튜토리얼보다는 "삽질 → 원인 → 해결" 위주.
+    menu:
+      main:
+        - identifier: posts
+          name: 글
+          url: /posts/
+          weight: 10
+        - identifier: categories
+          name: 카테고리
+          url: /categories/
+          weight: 20
+        - identifier: tags
+          name: 태그
+          url: /tags/
+          weight: 30
+        - identifier: search
+          name: 검색
+          url: /search/
+          weight: 40
+
+  en:
+    languageCode: en
+    languageName: English
+    weight: 2
+    title: "ML Engineering Log"
+    params:
+      description: "Notes on LLM fine-tuning, NLP, and AI security from real work."
+      keywords: [LLM, NLP, fine-tuning, MLOps, AI security, dev blog]
+      homeInfoParams:
+        Title: "ML Engineering Log 👋"
+        Content: >
+          Documenting problems and solutions from LLM fine-tuning, NLP, MLOps, and AI security work.
+          More "what broke and why" than tutorial.
+    menu:
+      main:
+        - identifier: posts
+          name: Posts
+          url: /en/posts/
+          weight: 10
+        - identifier: categories
+          name: Categories
+          url: /en/categories/
+          weight: 20
+        - identifier: tags
+          name: Tags
+          url: /en/tags/
+          weight: 30
+        - identifier: search
+          name: Search
+          url: /en/search/
+          weight: 40
 
 pagination:
   pagerSize: 10
@@ -21,10 +84,8 @@ minify:
 
 params:
   env: production
-  title: "ML 엔지니어링 로그"
-  description: "LLM 파인튜닝, NLP, 그리고 삽질 기록"
-  keywords: [LLM, NLP, 파인튜닝, MLOps, 개발블로그]
   defaultTheme: auto
+  displayFullLangName: true
   ShowReadingTime: true
   ShowShareButtons: false
   ShowPostNavLinks: true
@@ -34,37 +95,12 @@ params:
   ShowToc: true
   TocOpen: false
 
-  homeInfoParams:
-    Title: "ML 엔지니어링 로그 👋"
-    Content: >
-      LLM 파인튜닝 / NLP / MLOps 작업하며 부딪힌 문제와 해결 과정을 기록합니다.
-      튜토리얼보다는 "삽질 → 원인 → 해결" 위주.
-
   assets:
     disableHLJS: false
 
 taxonomies:
   category: categories
   tag: tags
-
-menu:
-  main:
-    - identifier: posts
-      name: 글
-      url: /posts/
-      weight: 10
-    - identifier: categories
-      name: 카테고리
-      url: /categories/
-      weight: 20
-    - identifier: tags
-      name: 태그
-      url: /tags/
-      weight: 30
-    - identifier: search
-      name: 검색
-      url: /search/
-      weight: 40
 
 markup:
   highlight:
@@ -78,4 +114,4 @@ outputs:
   home:
     - HTML
     - RSS
-    - JSON   # 검색 기능용
+    - JSON
