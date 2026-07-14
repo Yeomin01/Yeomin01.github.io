@@ -43,7 +43,7 @@ The lever was not the presence of priming but the role and boundary I handed the
 
 Even then, cipher-substitution attacks held only 18%. An encrypted request looks like a meaningless string — that is, benign — even to a small judge. Second-stage verification works well on attacks whose meaning sits on the surface, but on attacks that hide meaning behind encoding, it sees less than the first stage did.
 
-So the conclusion is not to re-verify everything. Send only the false-positive-prone contexts (general help, informational questions) to the second stage, and let the cipher and encoding families keep the first stage's verdict. Latency is not free either — two to four seconds per re-check, and the stricter the prompt, the longer the output and the slower it runs.
+So the conclusion is not to re-verify everything. Send only the false-positive-prone contexts (general help, informational questions) to the second stage, and let the cipher and encoding families keep the first stage's verdict. Latency has a cost too — two to four seconds per re-check, and the stricter the prompt, the longer the output and the slower it runs.
 
 ## Notes
 
