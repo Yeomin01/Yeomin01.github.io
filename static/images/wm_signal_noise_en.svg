@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="데이터 에너지는 방향이 뒤로 갈수록 급락하지만 양자화 잡음은 모든 방향에 고르게 퍼져 있다">
+<style>
+ .bg{fill:#f7f6f3}
+ .t{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;fill:#2b2823}
+ .s{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#6b665c}
+ .m{font-family:ui-monospace,Menlo,monospace;font-size:11px;fill:#6b665c}
+ .bad{fill:#a33a22}.key{fill:#5b4a86}
+ .grow{animation:g 7s ease-in-out infinite;transform-origin:0 250px}
+ @keyframes g{0%{transform:scaleY(0)}22%,100%{transform:scaleY(1)}}
+ .line{stroke-dasharray:700;stroke-dashoffset:700;animation:d 7s ease-in-out infinite}
+ @keyframes d{0%,26%{stroke-dashoffset:700}54%,100%{stroke-dashoffset:0}}
+ .lab{animation:f 7s ease-in-out infinite}
+ @keyframes f{0%,56%{opacity:0}64%,100%{opacity:1}}
+ .zone{animation:z 7s ease-in-out infinite}
+ @keyframes z{0%,74%{opacity:0}82%,100%{opacity:1}}
+</style>
+<rect class="bg" width="760" height="320" rx="4"/>
+<text class="s" x="20" y="24">768 hidden directions of a classifier — energy the data uses vs. int4 quantization error</text>
+<rect class="zone" x="600" y="40" width="120" height="210" fill="#efe9f5"/>
+<line x1="60" y1="250" x2="720" y2="250" stroke="#c9c4ba"/>
+<line x1="60" y1="40" x2="60" y2="250" stroke="#c9c4ba"/>
+<g class="m" text-anchor="end"><text x="54" y="46">1</text><text x="54" y="115">10⁻²</text><text x="54" y="184">10⁻⁴</text><text x="54" y="253">10⁻⁶</text></g>
+
+<g class="grow" fill="#2f5d8c">
+<rect x="62" y="52" width="14" height="198"/><rect x="78" y="112" width="14" height="138"/><rect x="94" y="126" width="14" height="124"/>
+<rect x="110" y="134" width="14" height="116"/><rect x="126" y="140" width="14" height="110"/><rect x="142" y="145" width="14" height="105"/>
+<rect x="158" y="149" width="14" height="101"/><rect x="174" y="153" width="14" height="97"/><rect x="190" y="157" width="14" height="93"/>
+<rect x="206" y="161" width="14" height="89"/><rect x="222" y="165" width="14" height="85"/><rect x="238" y="169" width="14" height="81"/>
+<rect x="254" y="173" width="14" height="77"/><rect x="270" y="177" width="14" height="73"/><rect x="286" y="181" width="14" height="69"/>
+<rect x="302" y="185" width="14" height="65"/><rect x="318" y="189" width="14" height="61"/><rect x="334" y="193" width="14" height="57"/>
+<rect x="350" y="197" width="14" height="53"/><rect x="366" y="200" width="14" height="50"/><rect x="382" y="203" width="14" height="47"/>
+<rect x="398" y="206" width="14" height="44"/><rect x="414" y="209" width="14" height="41"/><rect x="430" y="212" width="14" height="38"/>
+<rect x="446" y="215" width="14" height="35"/><rect x="462" y="218" width="14" height="32"/><rect x="478" y="220" width="14" height="30"/>
+<rect x="494" y="223" width="14" height="27"/><rect x="510" y="225" width="14" height="25"/><rect x="526" y="227" width="14" height="23"/>
+<rect x="542" y="230" width="14" height="20"/><rect x="558" y="232" width="14" height="18"/><rect x="574" y="234" width="14" height="16"/>
+<rect x="590" y="236" width="14" height="14"/><rect x="606" y="238" width="14" height="12"/><rect x="622" y="240" width="14" height="10"/>
+<rect x="638" y="241" width="14" height="9"/><rect x="654" y="243" width="14" height="7"/><rect x="670" y="244" width="14" height="6"/>
+<rect x="686" y="245" width="14" height="5"/><rect x="702" y="246" width="14" height="4"/>
+</g>
+<polyline class="line" fill="none" stroke="#c26a2a" stroke-width="2.4"
+ points="66,150 100,146 140,152 180,148 220,150 260,145 300,153 340,147 380,151 420,146 460,152 500,149 540,147 580,153 620,148 660,150 700,146 716,151"/>
+
+<g class="lab">
+  <rect x="90" y="56" width="12" height="3" fill="#2f5d8c"/>
+  <text class="t" x="110" y="62">Energy the data uses</text>
+  <rect x="250" y="56" width="12" height="3" fill="#c26a2a"/>
+  <text class="t" x="270" y="62">Quantization error — flat across all directions</text>
+</g>
+<g class="zone">
+  <text class="t key" x="660" y="60" text-anchor="middle">signature hidden here</text>
+  <text class="s bad" x="20" y="284">Data holds only 0.03% here, but 16.7% of the quantization error lands in it.</text>
+  <text class="s bad" x="20" y="302">A quiet subspace is as easy to erase from as it is to hide in.</text>
+</g>
+<text class="m" x="60" y="268">direction 1 — ordered by how much the data uses it →                        768</text>
+</svg>

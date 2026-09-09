@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" width="760" height="330" role="img" aria-label="은닉 유닛 순서를 바꿔도 출력은 같다. 그 순서가 서명이 되지만 정렬하면 사라진다">
+<style>
+ .bg{fill:#f7f6f3}
+ .t{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;fill:#2b2823}
+ .s{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#6b665c}
+ .m{font-family:ui-monospace,Menlo,monospace;font-size:13px;fill:#2b2823}
+ .mb{font-family:ui-monospace,Menlo,monospace;font-size:15px;font-weight:700;fill:#2b2823}
+ .u{fill:#fff;stroke:#8f8a80;stroke-width:1.2}
+ .ok{fill:#1f6b4a}.bad{fill:#a33a22}.key{fill:#5b4a86}
+ .p1{animation:s1 9s ease-in-out infinite}
+ .p2{animation:s2 9s ease-in-out infinite}
+ .p3{animation:s3 9s ease-in-out infinite}
+ @keyframes s1{0%,28%{opacity:1}33%,100%{opacity:0}}
+ @keyframes s2{0%,30%{opacity:0}35%,62%{opacity:1}67%,100%{opacity:0}}
+ @keyframes s3{0%,64%{opacity:0}69%,100%{opacity:1}}
+</style>
+<rect class="bg" width="760" height="330" rx="4"/>
+<text class="s" x="20" y="26">은닉 유닛 네 개 · 순서를 바꿔도 합계는 같다</text>
+
+<g class="p1">
+  <g class="u"><rect x="120" y="60" width="56" height="40" rx="3"/><rect x="196" y="60" width="56" height="40" rx="3"/><rect x="272" y="60" width="56" height="40" rx="3"/><rect x="348" y="60" width="56" height="40" rx="3"/></g>
+  <g class="mb" text-anchor="middle"><text x="148" y="86">A</text><text x="224" y="86">B</text><text x="300" y="86">C</text><text x="376" y="86">D</text></g>
+  <text class="t" x="20" y="86">원본</text>
+  <text class="m" x="440" y="86">출력 = 7.42</text>
+  <text class="s" x="120" y="126">약속한 쌍 (A,C) (B,D) — 앞에 오면 1</text>
+  <text class="mb key" x="120" y="152">읽은 값 1 1</text>
+</g>
+
+<g class="p2">
+  <g class="u"><rect x="120" y="60" width="56" height="40" rx="3"/><rect x="196" y="60" width="56" height="40" rx="3"/><rect x="272" y="60" width="56" height="40" rx="3"/><rect x="348" y="60" width="56" height="40" rx="3"/></g>
+  <g class="mb" text-anchor="middle"><text x="148" y="86">C</text><text x="224" y="86">A</text><text x="300" y="86">D</text><text x="376" y="86">B</text></g>
+  <text class="t" x="20" y="86">섞음</text>
+  <text class="m ok" x="440" y="86">출력 = 7.42 (동일)</text>
+  <text class="s" x="120" y="126">C 가 A 보다 앞 → 0 · D 가 B 보다 앞 → 0</text>
+  <text class="mb key" x="120" y="152">읽은 값 0 0 ← 서명이 된다</text>
+</g>
+
+<g class="p3">
+  <g class="u"><rect x="120" y="60" width="56" height="40" rx="3" stroke="#a33a22"/><rect x="196" y="60" width="56" height="40" rx="3" stroke="#a33a22"/><rect x="272" y="60" width="56" height="40" rx="3" stroke="#a33a22"/><rect x="348" y="60" width="56" height="40" rx="3" stroke="#a33a22"/></g>
+  <g class="mb" text-anchor="middle"><text x="148" y="86">A</text><text x="224" y="86">B</text><text x="300" y="86">C</text><text x="376" y="86">D</text></g>
+  <text class="t bad" x="20" y="86">정렬</text>
+  <text class="m" x="440" y="86">출력 = 7.42 (동일)</text>
+  <text class="s bad" x="120" y="126">공격자가 아무 기준으로 줄만 세우면</text>
+  <text class="mb bad" x="120" y="152">모든 사본이 같은 순서 → 서명 소멸</text>
+</g>
+
+<line x1="20" y1="188" x2="740" y2="188" stroke="#ddd9d2"/>
+<text class="s" x="20" y="216">함수를 보존하는 변환은 군을 이루고, 군에는 정규형이 있다.</text>
+<text class="s" x="20" y="236">그래서 <tspan class="bad">판정을 하나도 안 바꾸는 워터마크는 정규화 한 번으로 지워진다.</tspan></text>
+<text class="s" x="20" y="266">다만 정렬은 흔적을 남긴다 — 유닛 번호와 가중치 크기의 상관이</text>
+<text class="s" x="20" y="286">정상 모델은 0.01~0.02 인데 정렬당한 모델은 정확히 1.0 이다.</text>
+<text class="s" x="20" y="306">누구 것인지는 못 밝혀도 "세탁했다"는 사실은 증명된다.</text>
+</svg>
