@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" role="img" aria-label="요청 내용을 바꾸면 서버가 다시 계산한 서명과 어긋나 거절된다">
+<style>
+  .bg{fill:#f7f6f3}
+  .box{fill:#fff;stroke:#c9c4ba;stroke-width:1.2}
+  .t{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;fill:#2b2823}
+  .s{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;fill:#6b665c}
+  .m{font-family:ui-monospace,Menlo,monospace;font-size:12px;fill:#2b2823}
+  .ok{fill:#1f6b4a}.bad{fill:#a33a22}
+  .pkt{animation:travel 6s ease-in-out infinite}
+  @keyframes travel{
+    0%,6%{transform:translateX(0);opacity:0}
+    10%{opacity:1}
+    38%{transform:translateX(232px);opacity:1}
+    46%{transform:translateX(232px)}
+    72%{transform:translateX(470px);opacity:1}
+    92%,100%{transform:translateX(470px);opacity:1}
+  }
+  .tamper{animation:tam 6s ease-in-out infinite}
+  @keyframes tam{0%,42%{opacity:0}48%,100%{opacity:1}}
+  .reject{animation:rej 6s ease-in-out infinite}
+  @keyframes rej{0%,76%{opacity:0}82%,100%{opacity:1}}
+  .amt{animation:amt 6s ease-in-out infinite}
+  @keyframes amt{0%,44%{fill:#2b2823}50%,100%{fill:#a33a22}}
+</style>
+<rect class="bg" width="760" height="300" rx="4"/>
+<rect class="box" x="16" y="96" width="120" height="88" rx="3"/>
+<text class="t" x="76" y="126" text-anchor="middle">보내는 쪽</text>
+<text class="s" x="76" y="146" text-anchor="middle">내용 + 비밀키로</text>
+<text class="s" x="76" y="162" text-anchor="middle">서명을 만든다</text>
+
+<rect class="box" x="316" y="34" width="128" height="56" rx="3" stroke="#a33a22" stroke-dasharray="4 3"/>
+<text class="t bad" x="380" y="58" text-anchor="middle">중간에서 가로챔</text>
+<text class="s" x="380" y="76" text-anchor="middle">금액만 바꿔치기</text>
+<path d="M380 90 L380 116" stroke="#a33a22" stroke-width="1.4" marker-end="url(#a)"/>
+
+<rect class="box" x="620" y="96" width="124" height="88" rx="3"/>
+<text class="t" x="682" y="126" text-anchor="middle">받는 쪽</text>
+<text class="s" x="682" y="146" text-anchor="middle">같은 비밀키로</text>
+<text class="s" x="682" y="162" text-anchor="middle">서명을 다시 계산</text>
+
+<line x1="140" y1="140" x2="616" y2="140" stroke="#c9c4ba" stroke-width="1"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><polygon points="0,0 10,5 0,10" fill="#a33a22"/></marker></defs>
+
+<g class="pkt">
+  <rect class="box" x="150" y="116" width="132" height="48" rx="3"/>
+  <text class="m amt" x="216" y="136" text-anchor="middle">송금 1,000원</text>
+  <text class="m" x="216" y="154" text-anchor="middle" fill="#6b665c">서명 8f2a…</text>
+</g>
+
+<g class="tamper">
+  <text class="s bad" x="380" y="196" text-anchor="middle">내용은 바꿨지만</text>
+  <text class="s bad" x="380" y="212" text-anchor="middle">서명은 못 만든다 — 비밀키가 없으니까</text>
+</g>
+
+<g class="reject">
+  <rect x="588" y="206" width="164" height="56" rx="3" fill="#f6e6e1" stroke="#a33a22"/>
+  <text class="t bad" x="670" y="228" text-anchor="middle">서명 불일치 → 거절</text>
+  <text class="s" x="670" y="248" text-anchor="middle">8f2a… ≠ c41d…</text>
+</g>
+
+<text class="s" x="16" y="24">① 내용이 한 글자라도 바뀌면 서명이 달라진다</text>
+</svg>
