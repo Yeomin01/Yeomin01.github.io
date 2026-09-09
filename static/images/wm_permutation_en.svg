@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" width="760" height="330" role="img" aria-label="Reordering hidden units leaves the output unchanged, so the order can carry a signature — but sorting erases it">
+<style>
+ .bg{fill:#f7f6f3}
+ .t{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;fill:#2b2823}
+ .s{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11.5px;fill:#6b665c}
+ .m{font-family:ui-monospace,Menlo,monospace;font-size:13px;fill:#2b2823}
+ .mb{font-family:ui-monospace,Menlo,monospace;font-size:15px;font-weight:700;fill:#2b2823}
+ .u{fill:#fff;stroke:#8f8a80;stroke-width:1.2}
+ .ok{fill:#1f6b4a}.bad{fill:#a33a22}.key{fill:#5b4a86}
+ .p1{animation:s1 9s ease-in-out infinite}
+ .p2{animation:s2 9s ease-in-out infinite}
+ .p3{animation:s3 9s ease-in-out infinite}
+ @keyframes s1{0%,28%{opacity:1}33%,100%{opacity:0}}
+ @keyframes s2{0%,30%{opacity:0}35%,62%{opacity:1}67%,100%{opacity:0}}
+ @keyframes s3{0%,64%{opacity:0}69%,100%{opacity:1}}
+</style>
+<rect class="bg" width="760" height="330" rx="4"/>
+<text class="s" x="20" y="26">Four hidden units — reordering them leaves the sum unchanged</text>
+<g class="p1">
+  <g class="u"><rect x="140" y="60" width="56" height="40" rx="3"/><rect x="216" y="60" width="56" height="40" rx="3"/><rect x="292" y="60" width="56" height="40" rx="3"/><rect x="368" y="60" width="56" height="40" rx="3"/></g>
+  <g class="mb" text-anchor="middle"><text x="168" y="86">A</text><text x="244" y="86">B</text><text x="320" y="86">C</text><text x="396" y="86">D</text></g>
+  <text class="t" x="20" y="86">Original</text>
+  <text class="m" x="450" y="86">output = 7.42</text>
+  <text class="s" x="140" y="126">Key picks pairs (A,C) and (B,D) — "first" means 1</text>
+  <text class="mb key" x="140" y="152">reads 1 1</text>
+</g>
+<g class="p2">
+  <g class="u"><rect x="140" y="60" width="56" height="40" rx="3"/><rect x="216" y="60" width="56" height="40" rx="3"/><rect x="292" y="60" width="56" height="40" rx="3"/><rect x="368" y="60" width="56" height="40" rx="3"/></g>
+  <g class="mb" text-anchor="middle"><text x="168" y="86">C</text><text x="244" y="86">A</text><text x="320" y="86">D</text><text x="396" y="86">B</text></g>
+  <text class="t" x="20" y="86">Permuted</text>
+  <text class="m ok" x="450" y="86">output = 7.42 (identical)</text>
+  <text class="s" x="140" y="126">C before A → 0 · D before B → 0</text>
+  <text class="mb key" x="140" y="152">reads 0 0 ← this is the signature</text>
+</g>
+<g class="p3">
+  <g class="u"><rect x="140" y="60" width="56" height="40" rx="3" stroke="#a33a22"/><rect x="216" y="60" width="56" height="40" rx="3" stroke="#a33a22"/><rect x="292" y="60" width="56" height="40" rx="3" stroke="#a33a22"/><rect x="368" y="60" width="56" height="40" rx="3" stroke="#a33a22"/></g>
+  <g class="mb" text-anchor="middle"><text x="168" y="86">A</text><text x="244" y="86">B</text><text x="320" y="86">C</text><text x="396" y="86">D</text></g>
+  <text class="t bad" x="20" y="86">Sorted</text>
+  <text class="m" x="450" y="86">output = 7.42 (identical)</text>
+  <text class="s bad" x="140" y="126">An attacker sorts by any tie-free criterion</text>
+  <text class="mb bad" x="140" y="152">every copy collapses to one order → signature gone</text>
+</g>
+<line x1="20" y1="188" x2="740" y2="188" stroke="#ddd9d2"/>
+<text class="s" x="20" y="216">Function-preserving weight transforms form a group, and groups have canonical forms.</text>
+<text class="s" x="20" y="236">So <tspan class="bad">a watermark that changes no decision can be erased by one canonicalization.</tspan></text>
+<text class="s" x="20" y="266">Sorting does leave a trace: the correlation between unit index and weight magnitude</text>
+<text class="s" x="20" y="286">is 0.01–0.02 in a normal model but exactly 1.0 in a sorted one.</text>
+<text class="s" x="20" y="306">You cannot tell whose copy it was, but you can prove it was laundered.</text>
+</svg>
