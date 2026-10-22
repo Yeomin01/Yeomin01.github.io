@@ -50,6 +50,10 @@ Dettmers et al. (2023), *QLoRA: Efficient Finetuning of Quantized LLMs* 는 여�
 
 7B~10B 모델을 16GB GPU 한 장에서 돌릴 수 있었던 것도 이 4-bit + LoRA 조합 덕분이다.
 
+아래 그림에서 모델 크기를 7B 와 10B 로 바꿔 보면 세 방식이 16GB 선 대비 어디에 놓이는지 보인다. r 을 움직이면 학습 파라미터 비율과 어댑터가 차지하는 메모리가 함께 바뀐다.
+
+{{< demo name="lora-mem" >}}
+
 ## rank 와 capacity
 
 LoRA 의 `r`(rank)은 변화량을 얼마나 표현력 있게 근사하는지를 정한다. 작을수록 메모리와 속도에서 유리하지만 표현 용량도 함께 줄어든다.

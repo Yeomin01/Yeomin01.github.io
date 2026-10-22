@@ -64,6 +64,10 @@ Rolnick et al. (2018) 의 Experience Replay, Rebuffi et al. (2017) 의 iCaRL 계
 
 구현이 단순하고 효과가 직접적이다. 다만 과거 데이터를 저장해야 하므로 메모리·프라이버시 제약이 있고, 섞는 비율을 잘못 잡으면 sampling bias 가 생긴다.
 
+아래 그림은 가중치 두 개짜리 예시에서 task A 를 마친 뒤 task B 를 학습하는 경로다. 방식을 바꿔 보면 B 만 학습할 때는 A 에 중요한 가중치까지 끌려가 task A 의 손실이 다시 오르고, EWC 와 rehearsal 은 그 이동을 줄이는 것이 보인다.
+
+{{< demo name="forget-weights" >}}
+
 ## 적용: rehearsal
 
 EWC 의 Fisher 추정은 LoRA 파인튜닝 파이프라인에 통합하기 번거로워, rehearsal 을 택했다.

@@ -58,6 +58,10 @@ example 마다 **난이도(difficulty)** 를 매겨 정렬한다. 난이도는 �
 
 이 self-supervised 기준이, 라벨을 쓰는 최고 성능 supervised 기준(memorization 기반)에 견줄 만한 성능을 — 데이터의 70~80% 를 남기는 구간까지 — 보였다. 라벨링 비용 없이 데이터 선별이 가능하다는 점에서 실용적이다.
 
+아래 그림은 라벨 없이 k-means 로 중심을 찾고, 중심까지의 거리로 남길 점을 고른다. 데이터 양을 바꾸면 남는 쪽이 중심 가까이에서 바깥으로 뒤집히고, 극단 hard 거르기를 끄고 켜 보면 6절의 주의점도 함께 보인다.
+
+{{< demo name="prune-kmeans-keep" >}}
+
 ## 6. 한계
 
 - difficulty metric 의 품질에 결과가 크게 좌우된다. 좋은 metric 이 없으면 random pruning 보다 나을 게 없다.

@@ -93,6 +93,10 @@ ECE = Σ_bin ( |평균 conf - 정확도| × bin sample 비율 )
 
 ECE 0 은 완벽한 캘리브레이션이고, 학습된 BERT 류 모델은 보통 0.05 ~ 0.15 정도 나온다. Temperature Scaling 이 잘 적용되면 0.02 정도까지 떨어진다. Reliability diagram 으로 시각화하면 bin 별로 confidence 와 정확도의 막대 그래프가 대각선 (perfect calibration) 에 얼마나 가까운지가 한눈에 보인다.
 
+아래 그림에서 confidence 출처를 one-hot 위장 logits 로 두면 모든 값이 1.0 으로 몰려 임계값이 아무것도 거르지 못한다. CRF marginal 로 바꾼 뒤 T 를 움직이거나 val NLL 로 맞추면 막대가 대각선 쪽으로 옮겨 가고 ECE 가 줄어든다.
+
+{{< demo name="crf-reliability" >}}
+
 ## 정리 — 두 작업 묶음의 의미
 
 이 두 작업 (CRF marginal 추출 + Temperature Scaling) 은 같이 가야 의미가 있다.

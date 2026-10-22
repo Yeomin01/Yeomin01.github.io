@@ -1,0 +1,18 @@
+{{- /*
+  움직이는 그림 자리. 사용: {{< demo name="그림 이름" >}}
+  스크립트는 static/demos/kit.js 와 static/demos/<글 파일 이름>.js 를 페이지당 한 번씩 붙인다.
+  다른 글의 스크립트를 쓰려면 script="파일 이름" 을 준다.
+*/ -}}
+{{- $name := .Get "name" -}}
+{{- if not $name -}}{{- errorf "demo 숏코드에 name 이 없습니다: %s" .Position -}}{{- end -}}
+{{- $script := .Get "script" | default .Page.File.ContentBaseName -}}
+<div class="tca" data-demo="{{ $name }}"><div class="tca-sub">{{ if eq .Page.Language.Lang "en" }}The interactive figure is available on the blog page.{{ else }}움직이는 그림은 블로그 페이지에서 볼 수 있다.{{ end }}</div></div>
+{{- if not (.Page.Store.Get "demo-kit") -}}
+{{- .Page.Store.Set "demo-kit" true -}}
+<script defer src="{{ "demos/kit.js" | relURL }}"></script>
+{{- end -}}
+{{- $key := printf "demo-js-%s" $script -}}
+{{- if not (.Page.Store.Get $key) -}}
+{{- .Page.Store.Set $key true -}}
+<script defer src="{{ printf "demos/%s.js" $script | relURL }}"></script>
+{{- end -}}

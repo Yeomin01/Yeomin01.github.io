@@ -72,6 +72,10 @@ CRF (Conditional Random Field) 는 토큰별 분류 점수에 라벨 간 전이 
 
 이 전이가 토큰별 logits 와 함께 시퀀스 점수가 되고, Viterbi 디코딩이 가장 점수가 높은 일관된 시퀀스를 뽑는다. 위 예시처럼 중간이 O 로 끊긴 출력은 전이 확률 페널티 때문에 자연스럽게 배제된다.
 
+아래 그림에서 "다음 단계"를 누르면 위의 깨진 예시가 Viterbi 로 한 열씩 디코딩된다. 여의대로에서 토큰 점수는 O 가 더 높지만, 전이 점수가 더해지면서 I 가 이기는 순간이 보인다.
+
+{{< demo name="addr-crf-viterbi" >}}
+
 ```python
 # pytorch-crf 의 사용 예
 import torch

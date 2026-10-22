@@ -53,6 +53,10 @@ A: 처음 5개. 2개 먹어서 3개 남음. 3개 더 사서 6개.
 
 attention 측면에서도 reasoning 토큰들이 입력의 어떤 부분이 답과 연결되는지 명시화하는 역할을 한다. 직접 답에선 입력 전체에서 답으로 한 번에 점프하는 셈인데, 거리가 멀면 그 점프가 어렵다.
 
+아래 그림에서 조각을 하나씩 넘겨 보면, 답 '6' 을 뽑는 순간 직접 답의 컨텍스트에는 문제만 있고 CoT 의 컨텍스트에는 중간 계산이 이미 놓여 있는 것이 보인다.
+
+{{< demo name="cot-token-steps" >}}
+
 ## 프롬프팅에서 학습으로
 
 CoT 는 처음엔 프롬프트 기법이었다. "Let's think step by step" 한 줄만 넣어도 큰 효과 (Kojima et al., 2022, *Large Language Models are Zero-Shot Reasoners*). 응용도 빠르게 늘었다 — self-consistency (여러 reasoning path 의 다수결, Wang et al., 2022), tree-of-thought, 그리고 reasoning 을 chain 형태가 아닌 그래프로 확장한 다양한 변형.
